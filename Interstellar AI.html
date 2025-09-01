@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interstellar AI</title>
+<style>
+/* Reset & Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Arial', sans-serif;
+  background: #0f0c29;
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+header .logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #00f2fe;
+  text-shadow: 0 0 10px #00f2fe;
+}
+header nav a {
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+header nav a:hover { color: #00f2fe; }
+
+/* Music Button */
+#music-btn {
+  background: #00f2fe;
+  color: #000;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00f2fe;
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 120px;
+  padding: 80px 20px;
+}
+.hero h2 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #00f2fe;
+  text-shadow: 0 0 20px #00f2fe, 0 0 40px #00f2fe;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00f2fe;
+  width: 0;
+  animation: typing 4s steps(30) forwards, blink 0.7s infinite;
+}
+.hero p {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  background: #00f2fe;
+  color: #000;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2em;
+  box-shadow: 0 0 20px #00f2fe;
+  transition: 0.3s;
+}
+.btn:hover { background: #fff; transform: scale(1.1); }
+
+/* Features */
+.features {
+  padding: 80px 20px;
+}
+.features h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+.feature-card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 1.3em;
+  text-shadow: 0 0 10px #00f2fe;
+  transition: transform 0.3s;
+}
+.feature-card:hover { transform: scale(1.1); box-shadow: 0 0 15px #00f2fe; }
+
+/* Demo Section */
+.demo {
+  padding: 80px 20px;
+}
+.demo input {
+  width: 80%;
+  max-width: 400px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+}
+.demo button {
+  padding: 12px 25px;
+  background: #00f2fe;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1em;
+  box-shadow: 0 0 15px #00f2fe;
+}
+#aiResponse { margin-top: 20px; font-size: 1.3em; }
+
+/* Contact */
+.contact {
+  padding: 80px 20px;
+}
+.contact input, .contact textarea {
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+}
+.contact button {
+  background: #00f2fe;
+  color: #000;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background: rgba(0,0,0,0.6);
+  padding: 15px;
+  font-size: 0.9em;
+}
+
+/* Typing Effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Particles */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+</style>
+</head>
+<body>
+<div id="particles-js"></div>
+
+<header>
+  <h1 class="logo">Interstellar AI</h1>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#demo">Demo</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button id="music-btn" onclick="toggleMusic()">Play Music</button>
+</header>
+
+<section class="hero">
+  <h2>The Future of AI</h2>
+  <p>Explore AI Music, Videos, Chatbot & Writing at its best.</p>
+  <a href="#demo" class="btn" onclick="playClick()">Try Demo</a>
+</section>
+
+<section id="features" class="features">
+  <h2>Our Features</h2>
+  <div class="feature-grid">
+    <div class="feature-card">🎵 Music Generator</div>
+    <div class="feature-card">🎬 Video Generator</div>
+    <div class="feature-card">💬 AI Chatbot</div>
+    <div class="feature-card">✍ Writer AI</div>
+  </div>
+</section>
+
+<section id="demo" class="demo">
+  <h2>AI Demo</h2>
+  <p>Ask Interstellar AI anything:</p>
+  <input type="text" id="userInput" placeholder="Type your question...">
+  <button onclick="generateResponse(); playClick()">Ask AI</button>
+  <div id="aiResponse"></div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="email" id="email" placeholder="Your Email">
+  <textarea id="message" placeholder="Your Message"></textarea>
+  <button onclick="sendEmail(); playClick()">Send</button>
+</section>
+
+<footer>
+  <p>© 2025 Interstellar AI. All rights reserved.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": {"value": 120},
+    "size": {"value": 3},
+    "color": {"value": "#00f2fe"},
+    "line_linked": {"enable": true, "color": "#00f2fe"},
+    "move": {"enable": true, "speed": 3}
+  }
+});
+
+let music = new Audio('https://www.bensound.com/bensound-music/bensound-sci-fi.mp3');
+music.loop = true;
+let musicPlaying = false;
+
+function toggleMusic() {
+  if (musicPlaying) {
+    music.pause();
+    document.getElementById('music-btn').innerText = 'Play Music';
+  } else {
+    music.play();
+    document.getElementById('music-btn').innerText = 'Pause Music';
+  }
+  musicPlaying = !musicPlaying;
+}
+
+let clickSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387');
+function playClick() { clickSound.play(); }
+
+function generateResponse() {
+  const userInput = document.getElementById('userInput').value;
+  const aiResponse = document.getElementById('aiResponse');
+  aiResponse.innerHTML = "Thinking...";
+  setTimeout(() => {
+    aiResponse.innerHTML = "Interstellar AI: '" + userInput + "' is an amazing question! Let me process that for you...";
+  }, 1500);
+}
+
+(function() {
+  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+})();
+
+function sendEmail() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    from_name: name,
+    from_email: email,
+    message: message
+  }).then(() => {
+    alert("Message Sent Successfully!");
+  }, (error) => {
+    alert("Failed to send message: " + JSON.stringify(error));
+  });
+}
+</script>
+</body>
+</html>
